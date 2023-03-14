@@ -38,7 +38,7 @@ func (m *memoryRepo) init() error {
 	}
 
 	s := string(bs)
-	m.words = strings.Split(s, "\n")
+	m.words = strings.Split(s, "\r\n")
 
 	return nil
 }

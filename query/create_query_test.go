@@ -52,7 +52,7 @@ func TestCreateQueryInclusions(t *testing.T) {
 		t.Run(testCase.name, func(t *testing.T) {
 			q, err := CreateQuery("", testCase.input, "")
 			assert.Nil(t, err)
-			assert.ElementsMatch(t, testCase.expectedOutput, q.Contains)
+			assert.ElementsMatch(t, testCase.expectedOutput, q.Include)
 		})
 	}
 }

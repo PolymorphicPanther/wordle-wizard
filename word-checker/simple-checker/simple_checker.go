@@ -29,7 +29,7 @@ func (s simpleChecker) Valid(w string) bool {
 	// If Go had a PCRE regex engine everything could be checked in one go
 	// with something like: "^(?=[a-z]*i)(?![a-z]*[outyas])(pr[a-z]{2}e[a-z]{1}cl)$" but alas :( ....
 	match := s.re.MatchString(w)
-	return match && hasAllChars(s.q.Contains, w)
+	return match && hasAllChars(s.q.Include, w)
 }
 
 func hasAllChars(inc []byte, s string) bool {

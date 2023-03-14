@@ -13,9 +13,9 @@ var ErrUnexpectedChar = errors.New("unexpected character")
 var ErrNoPosition = errors.New("expected position")
 
 type Query struct {
-	Contains []byte
-	Exclude  []byte
-	Placed   map[byte][]int
+	Include []byte
+	Exclude []byte
+	Placed  map[byte][]int
 }
 
 func (q *Query) String() string {
@@ -28,9 +28,9 @@ func (q *Query) String() string {
 	}
 
 	if len(q.Exclude) > 0 {
-		sb.Grow(len(q.Contains)*2 + 14)
+		sb.Grow(len(q.Include)*2 + 14)
 		sb.WriteString("Inclusions: ")
-		byteSliceToString(&sb, q.Contains)
+		byteSliceToString(&sb, q.Include)
 		sb.WriteString("\n")
 	}
 
@@ -130,8 +130,8 @@ func CreateQuery(excl, incl, placd string) (Query, error) {
 	}
 
 	return Query{
-		Contains: parseInclusions(incl),
-		Exclude:  parseExclusions(excl),
-		Placed:   posMap,
+		Include: parseInclusions(incl),
+		Exclude: parseExclusions(excl),
+		Placed:  posMap,
 	}, nil
 }

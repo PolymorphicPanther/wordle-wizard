@@ -9,10 +9,10 @@ var ErrInclusionCount = errors.New("inclusions exceed word length")
 
 func SanitizeQuery(cfg config.Config, q *Query) error {
 	q.Exclude = sanitizeBytes(q.Exclude)
-	q.Contains = sanitizeBytes(q.Contains)
+	q.Include = sanitizeBytes(q.Include)
 	q.Placed = sanitizeMap(cfg, q.Placed)
 
-	err := checkInclusionsLength(cfg, q.Contains)
+	err := checkInclusionsLength(cfg, q.Include)
 	if err != nil {
 		return err
 	}

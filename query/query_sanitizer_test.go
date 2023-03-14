@@ -68,11 +68,11 @@ func TestSanitizeInclusions(t *testing.T) {
 
 	for _, testCase := range testCases {
 		t.Run(testCase.name, func(t *testing.T) {
-			q := Query{Contains: testCase.inputInclusions}
+			q := Query{Include: testCase.inputInclusions}
 			err := SanitizeQuery(config.Config{LetterCount: 5}, &q)
 
 			assert.ErrorIs(t, err, testCase.expectedErr)
-			assert.ElementsMatch(t, testCase.expectedInclusions, q.Contains)
+			assert.ElementsMatch(t, testCase.expectedInclusions, q.Include)
 		})
 	}
 }
