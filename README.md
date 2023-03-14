@@ -1,4 +1,4 @@
-# world-wizard
+# wordle-wizard
 
 A fun side project born out of the question: "Can you hack Wordle ?". Wordle is a web based game, which gives a user 6 guesses to guess the 5 letter word of the day, play it [here](https://www.nytimes.com/games/wordle/index.html).
 
